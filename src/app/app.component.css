@@ -1,0 +1,9 @@
+.content {
+    margin-top: 35px;
+    position: relative;
+    min-height: 87vh;
+}
+
+.content-wrap {
+    padding-bottom: 2 rem;
+}

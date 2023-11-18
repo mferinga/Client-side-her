@@ -1,0 +1,44 @@
+<div>
+  <button class="btn btn-primary my-3 px-2" routerLink="new">Add Park</button>
+  <table class="table" aria-label="Theme Park List">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let park of parks; let i = index">
+        <td>
+          <a
+            class="nameLink"
+            routerLink="{{ park.id }}"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >{{ park.name }}</a
+          >
+        </td>
+        <td>
+          {{ park.Address }}
+        </td>
+        <td>€ {{ park.price }}</td>
+        <td>
+          <a routerLink="{{ park.id }}/edit">
+            <img
+              src="../../../../assets/img/icons8-pencil-30.png"
+              alt="Edit Icon"
+            />
+          </a>
+          <a routerLink="{{ park.id }}/delete">
+            <img
+              src="../../../../assets/img/icons8-remove-30.png"
+              alt="Remove Icon"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
