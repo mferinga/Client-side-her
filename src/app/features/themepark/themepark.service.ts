@@ -74,6 +74,7 @@ export class ThemeparkService {
   constructor() {}
 
   getAllParks(): Themepark[] {
+    console.log(this.themeParks.length);
     return this.themeParks;
   }
 
@@ -100,11 +101,9 @@ export class ThemeparkService {
   }
 
   deletePark(id: number): void {
-    let check = this.themeParks.findIndex((p) => p.id === id);
-    if (check === -1) {
-      throw new Error('No park found with id ' + id);
-    } else {
-      this.themeParks.splice(id, 1);
+    let position = this.themeParks.indexOf(this.getParkById(id));
+    if (position !== -1) {
+      this.themeParks.splice(position, 1);
     }
   }
 }

@@ -31,12 +31,12 @@
               alt="Edit Icon"
             />
           </a>
-          <a routerLink="{{ park.id }}/delete">
+          <button class="bg-white border-0" (click)="delete(park.id)">
             <img
               src="../../../../assets/img/icons8-remove-30.png"
               alt="Remove Icon"
             />
-          </a>
+          </button>
         </td>
       </tr>
     </tbody>
