@@ -30,6 +30,46 @@ export class ThemeparkEditComponent {
   }
 
   save(): void {
+    var park = new Themepark();
+
+    var name = (document.getElementById('park-name') as HTMLInputElement).value;
+    var description = (
+      document.getElementById('park-description') as HTMLInputElement
+    ).value;
+    var price = Number(
+      (document.getElementById('park-price') as HTMLInputElement).value
+    );
+    var familyFocussed = Boolean(
+      (document.getElementById('park-is-family-focussed') as HTMLInputElement)
+        .checked
+    );
+    var address = (document.getElementById('park-address') as HTMLInputElement)
+      .value;
+    var parkid = this.ThemeparkService.getAllParks().length + 1;
+
+    if (this.parkId) {
+      parkid = this.parkId;
+      park = {
+        id: parkid,
+        name: name,
+        description: description,
+        price: price,
+        FamilyFocussed: familyFocussed,
+        Address: address,
+      };
+      this.ThemeparkService.editPark(park);
+    } else {
+      park = {
+        id: parkid,
+        name: name,
+        description: description,
+        price: price,
+        FamilyFocussed: familyFocussed,
+        Address: address,
+      };
+      this.ThemeparkService.addPark(park);
+    }
+
     this.router.navigate(['..'], { relativeTo: this.route });
   }
 }
